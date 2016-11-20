@@ -1,0 +1,21 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminSablon.master.cs" Inherits="E_Ticaret_Projesi.AdminSablon" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Yönetim Paneli</title>
+    <link rel="stylesheet" href="Admin.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div class="content">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
