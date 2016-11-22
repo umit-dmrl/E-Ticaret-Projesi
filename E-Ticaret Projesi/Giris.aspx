@@ -5,17 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Yönetim Paneli</title>
-    <link rel="stylesheet" href="Admin.css" />
+    <link rel="stylesheet" href="assets/css/Admin.css" />
     <link rel='stylesheet prefetch' href='assets/css/bootstrap.min.css'>
     <script src='assets/js/jquery.min.js'></script>
     <script src='assets/js/bootstrap.min.js'></script>
     <script src="assets/js/jquery-ui.js"></script>
     <link rel="stylesheet" href="assets/css/jquery-ui.css">
-    <script type="text/javascript">
-        function test() {
-            alert("merhaba");
-        }
-    </script>
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -26,9 +22,12 @@
                 <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
                 <br />
                 Parola<br />
-                <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" onclick="test()"></asp:TextBox>
+                <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
                 <div class="btn-submit">
-                    <asp:Button ID="btnLogin" runat="server" Text="Giriş Yap" CssClass="btn btn-primary" OnClick="btnLogin_Click" /></div>
+                    <asp:Button ID="btnLogin" runat="server" Text="Giriş Yap" CssClass="btn btn-primary" OnClick="btnLogin_Click" />
+                </div>
+                <br />
+                <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
             </div>
         </div>
     </form>

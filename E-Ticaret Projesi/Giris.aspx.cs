@@ -20,13 +20,33 @@ namespace E_Ticaret_Projesi
         {
             try
             {
+                string username = txtUserName.Text.Trim().ToString();
+                string password = txtPassword.Text.Trim().ToString();
+
                 SqlConnection cnn = new SqlConnection(ConfigurationManager.ConnectionStrings[0].ConnectionString);
                 cnn.Open();
-                SqlCommand kayit = new SqlCommand("select * from admin where id=1",cnn);
+                SqlCommand kayit = new SqlCommand("select * from admin where username=@username and password=@password",cnn);
+                kayit.Parameters.Add("@username", username);
+                kayit.Parameters.Add("@password", password);
+
                 SqlDataReader oku = kayit.ExecuteReader();
+                int sayac=0;
                 while (oku.Read())
                 {
-                    Response.Write(oku["id"].ToString() + "<br>" + oku["username"].ToString() + oku["password"].ToString());
+                    Session["UserID"] = oku["id"].ToString();
+                    Session["UserName"] = oku["username"].ToString();
+                    sayac++;
+                }
+                if (sayac != 0)
+                {
+                    lblMessage.ForeColor = System.Drawing.Color.Green;
+                    lblMessage.Text = "Hoşgeldiniz";
+                    Response.Redirect("~/YonetimPaneli.aspx");
+                }
+                else
+                {
+                    lblMessage.ForeColor = System.Drawing.Color.Maroon;
+                    lblMessage.Text = "Kullanıcı Adı Veya Parolanız Hatalı!";
                 }
                 cnn.Close();
             }

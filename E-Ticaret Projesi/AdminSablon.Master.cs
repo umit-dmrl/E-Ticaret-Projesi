@@ -11,7 +11,14 @@ namespace E_Ticaret_Projesi
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["UserID"] == null || Session["UserName"] == null)
+            {
+                Response.Redirect("~/Giris.aspx");
+            }
+            else
+            {
+                lblUserName.Text = Session["UserName"].ToString();
+            }
         }
     }
 }
